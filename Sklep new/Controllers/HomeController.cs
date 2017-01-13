@@ -13,7 +13,7 @@ namespace Sklep_new.Controllers
         private KursyContext db = new KursyContext();
         public ActionResult Index()
         {
-
+            var listakategorii = db.Kategorie.ToList();
             return View();
         }
 
