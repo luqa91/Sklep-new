@@ -1,5 +1,6 @@
 ﻿using StronaSklep.DAL;
 using StronaSklep.Models;
+using StronaSklep.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -13,22 +14,58 @@ namespace Sklep_new.Controllers
         private KursyContext db = new KursyContext();
         public ActionResult Index()
         {
-            var listakategorii = db.Kategorie.ToList();
-            return View();
+
+            var kategorie = db.Kategorie.ToList();
+            var nowosci = db.Kursy.Where(a => !a.Ukryty).OrderByDescending(a => a.DataDodania).Take(3).ToList();
+            var bestsellery = db.Kursy.Where(a => !a.Ukryty && a.Bestseller).OrderBy(a => Guid.NewGuid()).Take(3).ToList();
+
+            var vm = new HomeViewModel()
+            {
+                Kategorie = kategorie,
+                Nowości = nowosci,
+                Bestsellery = bestsellery,
+
+            };
+            return View(vm);
         }
 
-        public ActionResult About()
-        {
-            ViewBag.Message = "Your application description page.";
 
-            return View();
-        }
-
-        public ActionResult Contact()
+        public ActionResult Kategoria()
         {
             ViewBag.Message = "Your contact page.";
 
             return View();
+        }
+
+        public ActionResult Cart()
+        {
+            ViewBag.Message = "Your contact page.";
+
+            return View();
+        }
+
+        public ActionResult StronyStatyczne(string nazwa)
+        {
+            return View(nazwa);
+        }
+
+        public ActionResult test()
+        {
+            {
+
+                var kategorie = db.Kategorie.ToList();
+                var nowosci = db.Kursy.Where(a => !a.Ukryty).OrderByDescending(a => a.DataDodania).Take(3).ToList();
+                var bestsellery = db.Kursy.Where(a => !a.Ukryty && a.Bestseller).OrderBy(a => Guid.NewGuid()).Take(3).ToList();
+
+                var vm = new HomeViewModel()
+                {
+                    Kategorie = kategorie,
+                    Nowości = nowosci,
+                    Bestsellery = bestsellery,
+
+                };
+                return View("test", vm);
+            }
         }
     }
 }
