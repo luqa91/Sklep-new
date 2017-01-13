@@ -1,4 +1,6 @@
-﻿using System;
+﻿using StronaSklep.DAL;
+using StronaSklep.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -8,8 +10,10 @@ namespace Sklep_new.Controllers
 {
     public class HomeController : Controller
     {
+        private KursyContext db = new KursyContext();
         public ActionResult Index()
         {
+
             return View();
         }
 
