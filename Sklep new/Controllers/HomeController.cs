@@ -46,7 +46,12 @@ namespace Sklep_new.Controllers
 
         public ActionResult StronyStatyczne(string nazwa)
         {
-            return View(nazwa);
+            var kategorie = db.Kategorie.ToList();
+            var vm = new HomeViewModel()
+            {
+                Kategorie = kategorie,
+            };
+            return View(nazwa, vm);
         }
 
         public ActionResult test()
@@ -57,14 +62,14 @@ namespace Sklep_new.Controllers
                 var nowosci = db.Kursy.Where(a => !a.Ukryty).OrderByDescending(a => a.DataDodania).Take(3).ToList();
                 var bestsellery = db.Kursy.Where(a => !a.Ukryty && a.Bestseller).OrderBy(a => Guid.NewGuid()).Take(3).ToList();
 
-                var vm = new HomeViewModel()
+                var m = new HomeViewModel()
                 {
                     Kategorie = kategorie,
                     Nowości = nowosci,
                     Bestsellery = bestsellery,
 
                 };
-                return View("test", vm);
+                return View("test", m);
             }
         }
     }
