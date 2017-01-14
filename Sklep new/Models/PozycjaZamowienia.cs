@@ -1,4 +1,4 @@
-﻿namespace StronaSklep.Models
+﻿namespace Sklep_new.Models
 {
     public class PozycjaZamowienia
     {

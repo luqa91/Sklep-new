@@ -1,4 +1,5 @@
-﻿using StronaSklep.Models;
+﻿using Sklep_new.Models;
+using Sklep_new.DAL;
 using System;
 using System.Collections.Generic;
 using System.Data.Entity;
@@ -6,7 +7,7 @@ using System.Data.Entity.ModelConfiguration.Conventions;
 using System.Linq;
 using System.Web;
 
-namespace StronaSklep.DAL
+namespace Sklep_new.DAL
 {
     public class KursyContext : DbContext
     {

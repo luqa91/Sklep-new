@@ -1,11 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Data.Entity;
-using StronaSklep.Models;
+using Sklep_new.Models;
 using System.Data.Entity.Migrations;
 using Sklep_new.Migrations;
 
-namespace StronaSklep.DAL
+namespace Sklep_new.DAL
 {
     public class KursyInitializer : MigrateDatabaseToLatestVersion<KursyContext, Configuration>
     {

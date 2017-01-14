@@ -1,12 +1,12 @@
 namespace Sklep_new.Migrations
 {
-    using StronaSklep.DAL;
+    using Sklep_new.DAL;
     using System;
     using System.Data.Entity;
     using System.Data.Entity.Migrations;
     using System.Linq;
 
-    public sealed class Configuration : DbMigrationsConfiguration<StronaSklep.DAL.KursyContext>
+    public sealed class Configuration : DbMigrationsConfiguration<Sklep_new.DAL.KursyContext>
     {
         public Configuration()
         {
@@ -14,7 +14,7 @@ namespace Sklep_new.Migrations
             ContextKey = "StronaSklep.DAL.KursyContext";
         }
 
-        protected override void Seed(StronaSklep.DAL.KursyContext context)
+        protected override void Seed(Sklep_new.DAL.KursyContext context)
         {
             KursyInitializer.SeedKursyData(context);
             //  This method will be called after migrating to the latest version.

@@ -1,11 +1,9 @@
-﻿using StronaSklep.DAL;
-using StronaSklep.Models;
-using StronaSklep.ViewModels;
+﻿using Sklep_new.ViewModels;
+using Sklep_new.DAL;
 using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Web;
 using System.Web.Mvc;
+
 
 namespace Sklep_new.Controllers
 {

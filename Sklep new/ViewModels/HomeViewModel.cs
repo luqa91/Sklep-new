@@ -1,7 +1,7 @@
-﻿using StronaSklep.Models;
+﻿using Sklep_new.Models;
 using System.Collections.Generic;
 
-namespace StronaSklep.ViewModels
+namespace Sklep_new.ViewModels
 {
     public class HomeViewModel
     {

@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 
-namespace StronaSklep.Models
+namespace Sklep_new.Models
 {
     public class Kategoria
     {

@@ -4,7 +4,7 @@ using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Web;
 
-namespace StronaSklep.Models
+namespace Sklep_new.Models
 {
     public class Kurs
     {
