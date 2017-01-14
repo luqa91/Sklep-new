@@ -22,13 +22,19 @@ body {
 }
 
 .caption {
-    height: 130px;
-    overflow: hidden;
+    height: auto;
+    overflow:visible;
+    padding: 0px;
 }
 
+
+
 .caption h4 {
-    white-space: nowrap;
+    white-space:normal;
+
 }
+
+
 
 .thumbnail img {
     width: 100%;
@@ -37,7 +43,9 @@ body {
 .ratings {
     padding-right: 10px;
     padding-left: 10px;
+    margin-top: 0px;
     color: #d17581;
+
 }
 
 .thumbnail {
@@ -51,4 +59,18 @@ body {
 
 footer {
     margin: 50px 0;
+}
+
+.carousel-inner > .item > img,
+.carousel-inner > .item > a > img {
+    width: 100%;
+    margin: auto;
+}
+
+.hero-spacer {
+    margin-top: 50px;
+}
+
+.hero-feature {
+    margin-bottom: 30px;
 }
