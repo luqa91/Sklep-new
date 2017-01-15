@@ -146,7 +146,9 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\CartController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\KursyController.cs" />
     <Compile Include="DAL\KursyContext.cs" />
     <Compile Include="DAL\KursyInitializer.cs" />
     <Compile Include="Global.asax.cs">
@@ -229,6 +231,8 @@
     <Content Include="Views\Home\test.cshtml" />
     <Content Include="Views\_head.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\Kursy\Lista.cshtml" />
+    <Content Include="Views\Cart\BuyNow.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
