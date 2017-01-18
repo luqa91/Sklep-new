@@ -1,8 +1,17 @@
-﻿
+﻿@model IEnumerable<Sklep_new.Models.Kurs>
+@using Sklep_new.Infrasctructure
+
 @{
     ViewBag.Title = "Lista";
-    Layout = "~/Views/Shared/_Layout.cshtml";
+
 }
 
-<h2>Lista</h2>
-
+<!-- Page Content -->
+<div class="container">
+    <div class="row row-offcanvas row-offcanvas-left active">
+        @Html.Action("KategorieMenu")
+        <div class="row text-center">
+            @Html.Partial("_KursyList")
+        </div>
+    </div>
+</div>

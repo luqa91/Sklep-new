@@ -1,0 +1,32 @@
+﻿@model IEnumerable <Sklep_new.Models.Kurs>
+@using Sklep_new.Infrasctructure
+
+<div class="table-responsive">
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>
+                    Autor Kursu
+                </th>
+            </tr>
+
+        </thead>
+        <tbody>
+
+            @foreach (var item in Model) { 
+                <tr>
+                    <td>
+                        @Html.DisplayFor(itm => item.AutorKursu);
+                        <a href="@Url.Action("BuyNow","Cart", new {id=item.KursId })">
+                            <img src="@Url.Content("~/Content/Images/Koszyk.png")" />
+                        </a>
+                        <a class="" href="@Url.Action("MoreInfo","Kursy", new {id=item.KursId })">
+                            <img src="@Url.ObrazkiSciezka(item.NazwaPlikuObrazka)" />
+                        </a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
+

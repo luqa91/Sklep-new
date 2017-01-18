@@ -1,0 +1,101 @@
+﻿@model Sklep_new.Models.Kurs
+@using Sklep_new.Infrasctructure
+@{
+    ViewBag.Title = "MoreInfo";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<link href="~/Content/css/ShopItem.css" rel="stylesheet" />
+
+<!-- Page Content -->
+<div class="container">
+    @Html.Action("KategorieMenu")
+    <div class="row">
+
+        <div class="col-md-10">
+
+            <div class="thumbnail">
+                <img class="img-responsive" src="@Url.ObrazkiSciezka(Model.NazwaPlikuObrazka)" alt="">
+                <div class="caption-full">
+                    <a href="@Url.Action("BuyNow", "Cart", new { id = Model.KursId })" class="btn btn-primary pull-right">Buy Now!</a>
+                    <h4 class="pull-right">@String.Format("{0: 0.##}", Model.CenaKursu) PLN</h4>
+
+                    <h4>
+                        <a href="#">@Model.TytulKursu</a>
+                    </h4>
+                    <p>@Model.OpisSkrocony</p>
+
+                    <p>@Model.OpisKursu</p>
+                </div>
+                <div class="ratings">
+                    <p class="pull-right">3 reviews</p>
+                    <p>
+                        <span class="glyphicon glyphicon-star"></span>
+                        <span class="glyphicon glyphicon-star"></span>
+                        <span class="glyphicon glyphicon-star"></span>
+                        <span class="glyphicon glyphicon-star"></span>
+                        <span class="glyphicon glyphicon-star-empty"></span>
+                        4.0 stars
+                    </p>
+                </div>
+            </div>
+
+            <div class="well">
+
+                <div class="text-right">
+                    <a class="btn btn-success">Leave a Review</a>
+                </div>
+
+                <hr>
+
+                <div class="row">
+                    <div class="col-md-12">
+                        <span class="glyphicon glyphicon-star"></span>
+                        <span class="glyphicon glyphicon-star"></span>
+                        <span class="glyphicon glyphicon-star"></span>
+                        <span class="glyphicon glyphicon-star"></span>
+                        <span class="glyphicon glyphicon-star-empty"></span>
+                        Anonymous
+                        <span class="pull-right">10 days ago</span>
+                        <p>This product was great in terms of quality. I would definitely buy another!</p>
+                    </div>
+                </div>
+
+                <hr>
+
+                <div class="row">
+                    <div class="col-md-12">
+                        <span class="glyphicon glyphicon-star"></span>
+                        <span class="glyphicon glyphicon-star"></span>
+                        <span class="glyphicon glyphicon-star"></span>
+                        <span class="glyphicon glyphicon-star"></span>
+                        <span class="glyphicon glyphicon-star-empty"></span>
+                        Anonymous
+                        <span class="pull-right">12 days ago</span>
+                        <p>I've alredy ordered another one!</p>
+                    </div>
+                </div>
+
+                <hr>
+
+                <div class="row">
+                    <div class="col-md-12">
+                        <span class="glyphicon glyphicon-star"></span>
+                        <span class="glyphicon glyphicon-star"></span>
+                        <span class="glyphicon glyphicon-star"></span>
+                        <span class="glyphicon glyphicon-star"></span>
+                        <span class="glyphicon glyphicon-star-empty"></span>
+                        Anonymous
+                        <span class="pull-right">15 days ago</span>
+                        <p>I've seen some better than this, but not at this price. I definitely recommend this item.</p>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+<!-- /.container -->

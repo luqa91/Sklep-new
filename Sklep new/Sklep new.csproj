@@ -54,6 +54,12 @@
       <HintPath>..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.2\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.CSharp" />
+    <Reference Include="MvcSiteMapProvider, Version=4.6.22.0, Culture=neutral, PublicKeyToken=1923abe4657913cc, processorArchitecture=MSIL">
+      <HintPath>..\packages\MvcSiteMapProvider.MVC5.Core.4.6.22\lib\net45\MvcSiteMapProvider.dll</HintPath>
+    </Reference>
+    <Reference Include="MvcSiteMapProvider.WebActivator, Version=4.6.22.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\MvcSiteMapProvider.MVC5.4.6.22\lib\net45\MvcSiteMapProvider.WebActivator.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
@@ -107,6 +113,9 @@
       <Private>True</Private>
       <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.WebPages.Razor.dll</HintPath>
     </Reference>
+    <Reference Include="WebActivatorEx, Version=2.0.0.0, Culture=neutral, PublicKeyToken=7b26dc2a43f6a0d4, processorArchitecture=MSIL">
+      <HintPath>..\packages\WebActivatorEx.2.0.1\lib\net40\WebActivatorEx.dll</HintPath>
+    </Reference>
     <Reference Include="WebGrease">
       <Private>True</Private>
       <HintPath>..\packages\WebGrease.1.5.2\lib\WebGrease.dll</HintPath>
@@ -155,6 +164,7 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Infrasctructure\AppConfig.cs" />
+    <Compile Include="Infrasctructure\KursySzczegolyDynamicNodeProvider.cs" />
     <Compile Include="Infrasctructure\UrlHelpers.cs" />
     <Compile Include="Migrations\201701130813540_InitialCreate.cs" />
     <Compile Include="Migrations\201701130813540_InitialCreate.Designer.cs">
@@ -173,6 +183,8 @@
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\css\ShopItem.css" />
+    <Content Include="Content\css\Menu.css" />
     <Content Include="Content\css\shop-homepage.css" />
     <Content Include="Content\Images\Koszyk.png" />
     <Content Include="Content\Kategorie\asp.net.png" />
@@ -197,6 +209,10 @@
     <Content Include="Content\bootstrap.css.map" />
     <Content Include="Content\bootstrap-theme.min.css.map" />
     <Content Include="Content\bootstrap-theme.css.map" />
+    <Content Include="Mvc.sitemap" />
+    <None Include="MvcSiteMapSchema.xsd">
+      <SubType>Designer</SubType>
+    </None>
     <None Include="Scripts\jquery-3.1.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.1.1.js" />
     <Content Include="Scripts\jquery-3.1.1.min.js" />
@@ -229,10 +245,20 @@
     <Content Include="Views\Home\About.cshtml" />
     <Content Include="Views\Home\Contact.cshtml" />
     <Content Include="Views\Home\test.cshtml" />
-    <Content Include="Views\_head.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Kursy\Lista.cshtml" />
     <Content Include="Views\Cart\BuyNow.cshtml" />
+    <Content Include="Views\Kursy\_KategorieMenu.cshtml" />
+    <Content Include="Views\Kursy\_KursyList.cshtml" />
+    <Content Include="Views\Kursy\MoreInfo.cshtml" />
+    <Content Include="Views\Shared\DisplayTemplates\SiteMapTitleHelperModel.cshtml" />
+    <Content Include="Views\Shared\DisplayTemplates\SiteMapPathHelperModel.cshtml" />
+    <Content Include="Views\Shared\DisplayTemplates\SiteMapNodeModelList.cshtml" />
+    <Content Include="Views\Shared\DisplayTemplates\SiteMapNodeModel.cshtml" />
+    <Content Include="Views\Shared\DisplayTemplates\SiteMapHelperModel.cshtml" />
+    <Content Include="Views\Shared\DisplayTemplates\MetaRobotsHelperModel.cshtml" />
+    <Content Include="Views\Shared\DisplayTemplates\MenuHelperModel.cshtml" />
+    <Content Include="Views\Shared\DisplayTemplates\CanonicalHelperModel.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

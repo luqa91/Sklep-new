@@ -4,7 +4,11 @@
 
 @{
     ViewBag.Title = "Praktyczne kursy";
-} <!-- Page Content -->
+}
+@{
+    Html.RenderPartial("_PartialPage1");
+}
+ <!-- Page Content -->
 <link href="@Url.Content("~/Content/css/shop-homepage.css")" rel="stylesheet" />
 
     <div class="container">

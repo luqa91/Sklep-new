@@ -4,52 +4,96 @@
 
 @{
     ViewBag.Title = "Praktyczne kursy";
-} <!-- Page Content -->
-<link href="@Url.Content("~/Content/css/shop-homepage.css")" rel="stylesheet" />
+} 
+<div>
 
-<div class="container">
 
-    <div class="row">
+    <!-- Page Content -->
+    <link href="@Url.Content("~/Content/css/shop-homepage.css")" rel="stylesheet" />
 
-        <div class="col-md-9">
+    <div class="container">
 
-            <div class="row carousel-holder">
+        <div class="row">
 
-                <div class="col-md-12">
-                    <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
-                        <ol class="carousel-indicators">
-                            <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
-                            <li data-target="#carousel-example-generic" data-slide-to="1"></li>
-                            <li data-target="#carousel-example-generic" data-slide-to="2"></li>
-                        </ol>
-                        <div class="carousel-inner">
-                            @{
-                                var i = 0;
-                                foreach (var nowosc in Model.Nowości)
-                                {
-                                    var itemClass = i++ == 0 ? "item active" : "item";
-                                    <div class="@itemClass">
-                                        <img src="@Url.ObrazkiSciezka(nowosc.NazwaPlikuObrazka)" alt="">
-                                        <div class="carousel-caption">
-                                            <a href="@Url.Action("BuyNow", "Koszyk", new { id = nowosc.KursId })" class="btn btn-primary">Buy Now!</a>
-                                            <a href="@Url.Action("MoreInfo", "Kursy", new { id = nowosc.KursId })" class="btn btn-default">More Info</a>
+            <div class="col-md-9">
 
-                                            <h1>
-                                                @nowosc.TytulKursu - @nowosc.AutorKursu
-                                            </h1>
+                <div class="row carousel-holder">
+
+                    <div class="col-md-12">
+                        <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
+                            <ol class="carousel-indicators">
+                                <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
+                                <li data-target="#carousel-example-generic" data-slide-to="1"></li>
+                                <li data-target="#carousel-example-generic" data-slide-to="2"></li>
+                            </ol>
+                            <div class="carousel-inner">
+                                @{
+                                    var i = 0;
+                                    foreach (var nowosc in Model.Nowości)
+                                    {
+                                        var itemClass = i++ == 0 ? "item active" : "item";
+                                        <div class="@itemClass">
+                                            <img src="@Url.ObrazkiSciezka(nowosc.NazwaPlikuObrazka)" alt="">
+                                            <div class="carousel-caption">
+                                                <a href="@Url.Action("BuyNow", "Cart", new { id = nowosc.KursId })" class="btn btn-primary">Buy Now!</a>
+                                                <a href="@Url.Action("MoreInfo", "Kursy", new { id = nowosc.KursId })" class="btn btn-default">More Info</a>
+
+                                                <h1>
+                                                    @nowosc.TytulKursu - @nowosc.AutorKursu
+                                                </h1>
+                                            </div>
                                         </div>
-                                    </div>
+                                    }
                                 }
-                            }
 
+                            </div>
+                            <a class="left carousel-control" href="#carousel-example-generic" data-slide="prev">
+                                <span class="glyphicon glyphicon-chevron-left"></span>
+                            </a>
+                            <a class="right carousel-control" href="#carousel-example-generic" data-slide="next">
+                                <span class="glyphicon glyphicon-chevron-right"></span>
+                            </a>
                         </div>
-                        <a class="left carousel-control" href="#carousel-example-generic" data-slide="prev">
-                            <span class="glyphicon glyphicon-chevron-left"></span>
-                        </a>
-                        <a class="right carousel-control" href="#carousel-example-generic" data-slide="next">
-                            <span class="glyphicon glyphicon-chevron-right"></span>
-                        </a>
                     </div>
+                </div>
+                <div>
+                <!-- Title -->
+                <hr />
+                <div class="row">
+                    <div class="col-lg-12">
+                        <h3>BESTSELLERY</h3>
+                    </div>
+                </div>
+
+
+                <div class="row">
+                    @foreach (var bestseller in Model.Bestsellery)
+                    {
+                        <div class="col-sm-4 col-lg-4 col-md-4">
+                            <div class="thumbnail">
+                                <img src="@Url.ObrazkiSciezka(bestseller.NazwaPlikuObrazka)" alt="">
+                                <div class="caption">
+                                    <h4 class="pull-right">@string.Format("{0:C}", bestseller.CenaKursu)</h4>
+                                    <h4>
+                                        <a href="#">@bestseller.TytulKursu</a>
+                                    </h4>
+                                    <a href="@Url.Action("BuyNow", "Cart", new { id=bestseller.KursId})" class="btn btn-primary">Buy Now!</a>
+                                    <a href="@Url.Action("MoreInfo", "Kursy" , new { id = bestseller.KursId })" class="btn btn-default">More Info</a>
+                                    <p>@bestseller.OpisSkrocony <a target="_blank" href="http://www.bootsnipp.com">Bootsnipp - http://bootsnipp.com</a>.</p>
+                                </div>
+                                <div class="ratings">
+                                    <p class="pull-right">15 reviews</p>
+                                    <p>
+                                        <span class="glyphicon glyphicon-star"></span>
+                                        <span class="glyphicon glyphicon-star"></span>
+                                        <span class="glyphicon glyphicon-star"></span>
+                                        <span class="glyphicon glyphicon-star"></span>
+                                        <span class="glyphicon glyphicon-star"></span>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    }
                 </div>
 
             </div>
@@ -57,51 +101,11 @@
             <hr />
             <div class="row">
                 <div class="col-lg-12">
-                    <h3>BESTSELLERY</h3>
+                    <h3>KATEGORIE</h3>
                 </div>
             </div>
 
-
             <div class="row">
-                @foreach (var bestseller in Model.Bestsellery)
-                {
-                    <div class="col-sm-4 col-lg-4 col-md-4">
-                        <div class="thumbnail">
-                            <img src="@Url.ObrazkiSciezka(bestseller.NazwaPlikuObrazka)" alt="">
-                            <div class="caption">
-                                <h4 class="pull-right">@string.Format("{0:C}", bestseller.CenaKursu)</h4>
-                                <h4>
-                                    <a href="#">@bestseller.TytulKursu</a>
-                                </h4>
-                                <a href="@Url.Action("BuyNow", "Koszyk", new { id=bestseller.KursId})" class="btn btn-primary">Buy Now!</a> 
-                                <a href="@Url.Action("MoreInfo", "Kursy" , new { id = bestseller.KursId })" class="btn btn-default">More Info</a>
-                                <p>@bestseller.OpisSkrocony <a target="_blank" href="http://www.bootsnipp.com">Bootsnipp - http://bootsnipp.com</a>.</p>
-                            </div>
-                            <div class="ratings">
-                                <p class="pull-right">15 reviews</p>
-                                <p>
-                                    <span class="glyphicon glyphicon-star"></span>
-                                    <span class="glyphicon glyphicon-star"></span>
-                                    <span class="glyphicon glyphicon-star"></span>
-                                    <span class="glyphicon glyphicon-star"></span>
-                                    <span class="glyphicon glyphicon-star"></span>
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-                }
-            </div>
-
-        </div>
-        <!-- Title -->
-        <hr />
-        <div class="row">
-            <div class="col-lg-12">
-                <h3>KATEGORIE</h3>
-            </div>
-        </div>
-
-        <div class="row">
                 @foreach (var kategoria in Model.Kategorie)
                 {
                     <div class="col-sm-4 col-lg-4 col-md-4">
@@ -113,7 +117,7 @@
                                 <h4>
                                     <a href="@Url.Action("Lista", "Kursy", new {nazwaKategorii = kategoria.NazwaKategorii.ToLower() })">@kategoria.NazwaKategorii</a>
                                 </h4>
-                                <a href="@Url.Action("BuyNow", "Koszyk", new { id=kategoria.KategoriaId})" class="btn btn-primary">Buy Now!</a>
+                                <a href="@Url.Action("BuyNow", "Cart", new { id=kategoria.KategoriaId})" class="btn btn-primary">Buy Now!</a>
 
                                 <p>See more snippets like this online store item at <a target="_blank" href="http://www.bootsnipp.com">Bootsnipp - http://bootsnipp.com</a>.</p>
                             </div>
@@ -133,9 +137,11 @@
                 }
 
 
+            </div>
+
         </div>
 
     </div>
-
 </div>
+    </div>
 <!-- /.container -->

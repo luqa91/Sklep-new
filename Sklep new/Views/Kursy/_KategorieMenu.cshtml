@@ -1,0 +1,33 @@
+﻿@model IEnumerable<Sklep_new.Models.Kategoria>
+@using Sklep_new.Infrasctructure
+
+<link href="~/Content/css/Menu.css" rel="stylesheet" />
+
+    <div id="mySidenav" class="sidenav">
+        <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+        @foreach (var kategoria in Model)
+        {
+            <a href="@Url.Action("Lista", "Kursy", new { nazwaKategorii = kategoria.NazwaKategorii.ToLower() })">
+            @kategoria.NazwaKategorii
+                </a>
+        }
+    </div>
+
+<nav id="main">
+    <span style="font-size:30px;cursor:pointer" onclick="openNav()">&#9776; open</span>
+</nav>
+
+
+    <script>
+        function openNav() {
+            document.getElementById("mySidenav").style.width = "250px";
+            document.getElementById("main").style.marginLeft = "250px";
+        }
+
+        function closeNav() {
+            document.getElementById("mySidenav").style.width = "0";
+            document.getElementById("main").style.marginLeft = "0";
+        }
+    </script>
+
+
