@@ -5,20 +5,19 @@ using System.Collections.Generic;
 
 namespace Sklep_new.Infrasctructure
 {
-    public class KursySzczegolyDynamicNodeProvider: DynamicNodeProviderBase
+    public class KategorieDynamicNodeProvider: DynamicNodeProviderBase
     {
         private KursyContext db = new KursyContext();
         public override IEnumerable<DynamicNode> GetDynamicNodeCollection(ISiteMapNode node)
         {
-            var returnValue =new List<DynamicNode>();
+            var returnValue = new List<DynamicNode>();
 
-            foreach (Kurs kurs in db.Kursy)
+            foreach (Kategoria kategoria in db.Kategorie)
             {
                 DynamicNode nodee = new DynamicNode();
-                nodee.Title = kurs.TytulKursu;
-                nodee.Key = "Kurs_" + kurs.KursId;
-                nodee.ParentKey = "Kategoria_" + kurs.KategoriaId;
-                nodee.RouteValues.Add("id", kurs.KursId);
+                nodee.Title =kategoria.NazwaKategorii;
+                nodee.Key = "Kategoria_" + kategoria.KategoriaId;
+                nodee.RouteValues.Add("nazwaKategorii", kategoria.NazwaKategorii);
                 returnValue.Add(nodee);
             }
 
