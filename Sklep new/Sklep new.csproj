@@ -162,6 +162,7 @@
     <Compile Include="Infrasctructure\DefaultCacheProvider.cs" />
     <Compile Include="Infrasctructure\ICacheProvider.cs" />
     <Compile Include="Infrasctructure\ISessionManager.cs" />
+    <Compile Include="Infrasctructure\KoszykManager.cs" />
     <Compile Include="Infrasctructure\SessionManager.cs" />
     <Compile Include="Infrasctructure\UrlHelpers.cs" />
     <Compile Include="Migrations\201701130813540_InitialCreate.cs" />
@@ -171,6 +172,7 @@
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Kategoria.cs" />
     <Compile Include="Models\Kurs.cs" />
+    <Compile Include="Models\PozycjaKoszyka.cs" />
     <Compile Include="Models\PozycjaZamowienia.cs" />
     <Compile Include="Models\Zamowienie.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

@@ -27,11 +27,11 @@ namespace Sklep_new.Models
         public string Telefon { get; set; }
         public string Email { get; set; }
         public string Komentarz { get; set; }
-        public DateTime DataDodfania { get; set; }
+        public DateTime DataDodania { get; set; }
         public StanZamowienia StanZamowienia { get; set; }
         public decimal WartoscZamowienia { get; set; }
 
-        List<PozycjaZamowienia> PozycjeZamowienia { get; set; }
+        public List<PozycjaZamowienia> PozycjeZamowienia { get; set; }
     }
 
     public enum StanZamowienia

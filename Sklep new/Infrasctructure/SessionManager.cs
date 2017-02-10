@@ -2,30 +2,43 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
-/*
+using System.Web.SessionState;
+
 namespace Sklep_new.Infrasctructure
 {
     public class SessionManager : ISessionManager
     {
-        private HttpSessionStateBase
-        public void Abandon()
-        {
-            throw new NotImplementedException();
-        }
+        private HttpSessionState session;
 
+        public SessionManager()
+        {
+            session = HttpContext.Current.Session;
+        }
+        
         public T Get<T>(string key)
         {
-            throw new NotImplementedException();
+            return (T)session[key];
         }
 
         public void Set<T>(string name, T value)
         {
-            throw new NotImplementedException();
+            session[name] = value;
         }
-
+        public void Abandon()
+        {
+            session.Abandon();
+        }
         public T TryGet<T>(string key)
         {
-            throw new NotImplementedException();
+            try
+            {
+                return (T)session[key];
+            }
+            catch (NullReferenceException)
+            {
+
+                return default(T);
+            }
         }
     }
-}*/
+}
