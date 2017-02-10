@@ -161,6 +161,8 @@
     <Compile Include="Infrasctructure\Const.cs" />
     <Compile Include="Infrasctructure\DefaultCacheProvider.cs" />
     <Compile Include="Infrasctructure\ICacheProvider.cs" />
+    <Compile Include="Infrasctructure\ISessionManager.cs" />
+    <Compile Include="Infrasctructure\SessionManager.cs" />
     <Compile Include="Infrasctructure\UrlHelpers.cs" />
     <Compile Include="Migrations\201701130813540_InitialCreate.cs" />
     <Compile Include="Migrations\201701130813540_InitialCreate.Designer.cs">
@@ -179,6 +181,7 @@
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\css\search.css" />
     <Content Include="Content\css\ShopItem.css" />
     <Content Include="Content\css\Menu.css" />
     <Content Include="Content\css\shop-homepage.css" />

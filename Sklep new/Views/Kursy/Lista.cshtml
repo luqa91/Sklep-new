@@ -16,7 +16,9 @@
                 <h2>Stylish Search Box custom-search-input</h2>
                 <form id="search-form" method="get" data-ajax="true" data-ajax-target="#SekcjaListaKategorii">
                         <input id="search-filter" type="search" name="searchQuery" data-autocomplete-source="@Url.Action("KursyPodpowiedzi")" placeholder="Search" />
-                        <input type="submit" value="Search"/>
+                    <button id="but" class="btn btn-info btn-lg" type="submit">
+                        <i class="glyphicon glyphicon-search"></i>
+                    </button>
                 </form>
             </div>
         </div>
