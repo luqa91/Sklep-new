@@ -1,0 +1,147 @@
+﻿@model Sklep_new.ViewModels.KoszykViewModel
+@using Sklep_new.Infrasctructure
+
+@{
+    ViewBag.Title = "Koszyk";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<link href="//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
+<link href="~/Content/css/cart.css" rel="stylesheet" />
+
+<script src="~/Scripts/jquery.unobtrusive-ajax.js"></script>
+
+
+
+
+
+<div class="container">
+    <table id="cart" class="table table-hover table-condensed">
+        <thead>
+            <tr>
+                <th style="width:50%">Product</th>
+                <th style="width:10%">Price</th>
+                <th style="width:8%">Quantity</th>
+                <th style="width:22%" class="text-center">Subtotal</th>
+                <th style="width:10%"></th>
+            </tr>
+        </thead>
+
+
+
+        @foreach (var pozycjaKoszyka in Model.PozycjeKoszyka)
+        {
+            <tbody>
+                <tr id="koszyk-wiersz-@pozycjaKoszyka.Kurs.KursId">
+                    <td data-th="Product">
+                        <div class="row">
+                            <div class="col-sm-2 hidden-xs">
+                                <img src="@Url.Content("~/Content/Kursy/" + pozycjaKoszyka.Kurs.NazwaPlikuObrazka)" alt="..." class="img-responsive" />
+                            </div>
+                            <div class="col-sm-10">
+                                <h4 class="nomargin">@pozycjaKoszyka.Kurs.TytulKursu</h4>
+                                <p>Quis aute iure reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Lorem ipsum dolor sit amet.</p>
+                            </div>
+                        </div>
+                    </td>
+                    <td data-th="Price">
+                        @pozycjaKoszyka.Kurs.CenaKursu
+                        <a href="@Url.Action("MoreInfo", "Kursy", new { id = pozycjaKoszyka.Kurs.KursId })" class="btn btn-default">More Info</a>
+                    </td>
+                    <td data-th="Quantity">
+                        <input id="koszyk-ilosc-pozycji-@pozycjaKoszyka.Kurs.KursId" type="number" class="form-control text-center" value="@pozycjaKoszyka.Ilosc">
+                    </td>
+                    <td data-th="Subtotal" class="text-center">@String.Format("{0:0.##}", pozycjaKoszyka.Wartosc) zł</td>
+                    <td class="actions" data-th="">
+                        <button class="btn btn-info btn-sm">
+                            <i class="fa fa-refresh">
+                            </i>
+                        </button>
+                        <button class="btn btn-danger btn-sm" a data-id="@pozycjaKoszyka.Kurs.KursId" href="">
+                            <i class="fa fa-trash-o">
+
+
+                            </i>
+                        </button>
+                    </td>
+                </tr>
+            </tbody>
+        }
+
+        <tr id="koszyk-empty-message" @if (Model.PozycjeKoszyka != null && Model.PozycjeKoszyka.Count > 0) { <text> class="hidden" </text>          }>
+            <td>Twój koszyk jest pusty. Może chcesz coś dodać do koszyka ?</td>
+        </tr>
+
+
+        <tfoot>
+
+            <tr>
+                <td><a href="#" class="btn btn-warning"><i class="fa fa-angle-left"></i> Continue Shopping</a></td>
+                <td colspan="2" class="hidden-xs"></td>
+                <td class="hidden-xs text-center"><strong>Total <span id="calkowita-cena-wartosc">@String.Format("{0:0.##}", Model.CenaCalkowita)</span> zł</strong></td>
+
+                @if (Model.CenaCalkowita > 0)
+                {
+                    <td><a id="koszyk-button-zaplac" href="@Url.Action("Zaplac", "Cart")" class="btn btn-success btn-block">Checkout <i class="fa fa-angle-right"></i></a></td>
+                }
+
+            </tr>
+        </tfoot>
+    </table>
+</div>
+
+@section Scripts{
+
+    @System.Web.Optimization.Scripts.Render("~/bundles/jqueryAndJqueryUI")
+
+
+    <script src="~/Scripts/jquery-3.1.1.min.js"
+            type="text/javascript"></script>
+
+
+
+
+
+
+    <script type="text/javascript">
+        $(function () {
+            $("button[class='btn btn-danger btn-sm']").click(function () {
+                var recordDoUsuniecia = $(this).attr("data-id");
+
+                if (recordDoUsuniecia != '') {
+                    $.post("/Cart/UsunZKoszyka/", { "kursId2": recordDoUsuniecia },
+                        function (response) {
+                            if (response.IloscPozycjiUsuwanej == 0) {
+                                $('#koszyk-wiersz-' + response.IdPozycjiUsuwanej).fadeOut('slow', function () {
+                                    if (response.KoszykIloscPozycji == 0) {
+                                        $("#koszyk-empty-message").removeClass("hidden");
+                                    }
+
+
+
+                                });
+                            }
+                            else
+
+                            {
+                                $('#koszyk-ilosc-pozycji-' + response.IdPozycjiUsuwanej).val(response.IloscPozycjiUsuwanej);
+                            }
+                            if (response.KoszykIloscPozycji == 0) {
+                                $('#koszyk-button-zaplac').addClass('hidden');
+                                $('#CenaCalkowita').addClass('invisible');
+
+                            }
+                            $('#calkowita-cena-wartosc').text(response.KoszykCenaCalkowita);
+                            $('#koszyk-naglowek-ilosc-elementow').text(response.KoszykIloscPozycji);
+
+                        });
+                    return false;
+                }
+            });
+        }
+        );
+
+
+</script>
+
+}

@@ -1,0 +1,75 @@
+﻿@model Sklep_new.ViewModels.RegisterViewModel
+@{
+    ViewBag.Title = "Register";
+    Layout = "~/Views/Shared/_RightSectionLayout.cshtml";
+}
+
+
+<link href="~/Content/css/loginForm.css" rel="stylesheet" />
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-6 col-md-offset-3">
+            <div class="panel panel-login">
+                <div class="panel-heading">
+                    <div class="row">
+                        <div class="col-xs-3">
+                            <a href="#" id="register-form-link">Register</a>
+                        </div>
+                    </div>
+                    <hr>
+                </div>
+                <div class="panel-body">
+                    <div class="row">
+                        <div class="col-lg-12">
+
+                            @using (@Html.BeginForm("Login", "Account", new { ReturnUrl = ViewBag.ReturnUrl }, FormMethod.Post))
+                            {
+                                @Html.AntiForgeryToken()
+
+                                <div id="login-error">
+                                    @Html.ValidationMessage("loginerror", "")
+                                </div>
+
+                                <div id="register-form" role="form" style="display: block;">
+                                    <div class="form-group">
+                                        @Html.TextBoxFor(o => o.Email, new { @class = "form-control", type="email", name = "email", id = "email", tabindex = "1", placeholder = "Email Address", value = "" })
+                                        <div class="login-validation-message">
+                                            @Html.ValidationMessageFor(o => o.Email)
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        @Html.PasswordFor(o => o.Password, new { @class = "form-control", type="password", name = "password", id = "password", tabindex = "2", placeholder = "Password" })
+                                    </div>
+                                    <div class="login-validation-message">
+                                        @Html.ValidationMessageFor(o => o.Password)
+                                    </div>
+                                    <div class="form-group">
+                                        @Html.PasswordFor(o => o.ConfirmPassword, new { @class = "form-control", type = "password", name = "confirm-password", id = "confirm-password", tabindex = "2", placeholder = "Confirm Password" })
+                                    </div>
+                                    <div class="login-validation-message">
+                                        @Html.ValidationMessageFor(o => o.ConfirmPassword)
+                                    </div>
+                                    <div class="form-group">
+                                        <div class="row">
+                                            <div class="col-sm-6 col-sm-offset-3">
+                                                <input type="submit" name="register-submit" id="register-submit" tabindex="4" class="form-control btn btn-register" value="Register Now">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            }
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+@section Scripts
+{
+    <script src="~/Scripts/jquery-3.1.1.js"></script>
+    <script src="~/Scripts/jquery.validate.js"></script>
+    <script src="~/Scripts/jquery.validate.unobtrusive.js"></script>
+    <script src="~/Scripts/LoginRegister.js"></script>
+}

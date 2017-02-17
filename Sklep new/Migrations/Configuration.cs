@@ -10,7 +10,7 @@ namespace Sklep_new.Migrations
     {
         public Configuration()
         {
-            AutomaticMigrationsEnabled = false;
+            AutomaticMigrationsEnabled = true;
             ContextKey = "StronaSklep.DAL.KursyContext";
         }
 

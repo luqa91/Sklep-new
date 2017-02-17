@@ -4,14 +4,20 @@
 <link href="~/Content/css/Menu.css" rel="stylesheet" />
 
     <div id="mySidenav" class="sidenav">
-        <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
-        @foreach (var kategoria in Model)
-        {
-            <a href="@Url.Action("Lista", "Kursy", new { nazwaKategorii = kategoria.NazwaKategorii.ToLower() })">
+    <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+
+    @foreach (var kategoria in Model)
+    {
+        <a href="@Url.Action("Lista", "Kursy", new { nazwaKategorii = kategoria.NazwaKategorii.ToLower() })">
             @kategoria.NazwaKategorii
-                </a>
-        }
+        </a>
+    }
+
     </div>
+
+
+  
+
 
 <nav id="main">
     <span style="font-size:30px;cursor:pointer" onclick="openNav()">&#9776; open</span>
