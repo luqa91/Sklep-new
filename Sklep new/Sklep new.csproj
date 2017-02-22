@@ -211,6 +211,10 @@
     <Compile Include="Migrations\201702222232147_Dzialajace_Identity.Designer.cs">
       <DependentUpon>201702222232147_Dzialajace_Identity.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201702222312292_daneuzytkownika.cs" />
+    <Compile Include="Migrations\201702222312292_daneuzytkownika.Designer.cs">
+      <DependentUpon>201702222312292_daneuzytkownika.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\DaneUzytkownika.cs" />
     <Compile Include="Models\IdentityModels.cs" />
@@ -369,6 +373,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201702222232147_Dzialajace_Identity.resx">
       <DependentUpon>201702222232147_Dzialajace_Identity.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201702222312292_daneuzytkownika.resx">
+      <DependentUpon>201702222312292_daneuzytkownika.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
