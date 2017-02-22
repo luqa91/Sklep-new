@@ -1,16 +1,14 @@
 namespace Sklep_new.Migrations
 {
     using Sklep_new.DAL;
-    using System;
-    using System.Data.Entity;
     using System.Data.Entity.Migrations;
-    using System.Linq;
 
     public sealed class Configuration : DbMigrationsConfiguration<Sklep_new.DAL.KursyContext>
     {
         public Configuration()
         {
             AutomaticMigrationsEnabled = true;
+            AutomaticMigrationDataLossAllowed = true;
             ContextKey = "StronaSklep.DAL.KursyContext";
         }
 

@@ -6,12 +6,13 @@ using System.Data.Entity;
 using System.Data.Entity.ModelConfiguration.Conventions;
 using System.Linq;
 using System.Web;
+using Microsoft.AspNet.Identity.EntityFramework;
 
 namespace Sklep_new.DAL
 {
-    public class KursyContext : DbContext
+    public class KursyContext : IdentityDbContext<ApplicationUser>
     {
-        public KursyContext() : base("KursyContext")
+        public KursyContext() : base("KursyContext", throwIfV1Schema: false)
         {
 
         }
@@ -21,7 +22,10 @@ namespace Sklep_new.DAL
             Database.SetInitializer <KursyContext>( new KursyInitializer());
 
         }
-
+        public static KursyContext Create()
+        {
+            return new KursyContext();
+        }
 
         public DbSet<Kurs> Kursy { get; set; }
         public DbSet<Kategoria> Kategorie { get; set; }
@@ -30,12 +34,12 @@ namespace Sklep_new.DAL
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
-            
+
             //using System.data.entity.model configuration.conventions;
             //wyłącza konwencję, która automatycznie tworzy liczbę mnogą dla nazw tabel w bazie danych
             //zamiast Kategorie zostałyby stworzone tabele o nazwie Kategories
             modelBuilder.Conventions.Remove<PluralizingTableNameConvention>(); 
-            base.OnModelCreating(modelBuilder);
+                  base.OnModelCreating(modelBuilder);      
 
         }
     }
