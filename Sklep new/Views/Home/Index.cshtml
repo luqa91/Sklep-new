@@ -5,27 +5,26 @@
 @{
     ViewBag.Title = "Praktyczne kursy";
 } 
-<div>
 
 
     <!-- Page Content -->
     <link href="@Url.Content("~/Content/css/shop-homepage.css")" rel="stylesheet" />
 
     <div class="container">
-
         <div class="row">
-
             <div class="col-md-9">
 
                 <div class="row carousel-holder">
-
                     <div class="col-md-12">
+
                         <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
                             <ol class="carousel-indicators">
-                                <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
+                                <li data-target="#carousel-example-generic" data-slide-to="0"></li>
                                 <li data-target="#carousel-example-generic" data-slide-to="1"></li>
                                 <li data-target="#carousel-example-generic" data-slide-to="2"></li>
                             </ol>
+
+
                             <div class="carousel-inner">
                                 @{
                                     var i = 0;
@@ -37,7 +36,6 @@
                                             <div class="carousel-caption">
                                                 <a href="@Url.Action("BuyNow", "Cart", new { id = nowosc.KursId })" class="btn btn-primary">Buy Now!</a>
                                                 <a href="@Url.Action("MoreInfo", "Kursy", new { id = nowosc.KursId })" class="btn btn-default">More Info</a>
-
                                                 <h1>
                                                     @nowosc.TytulKursu - @nowosc.AutorKursu
                                                 </h1>
@@ -45,58 +43,69 @@
                                         </div>
                                     }
                                 }
-
                             </div>
+                  
+
                             <a class="left carousel-control" href="#carousel-example-generic" data-slide="prev">
-                                <span class="glyphicon glyphicon-chevron-left"></span>
+                                <span class="glyphicon glyphicon-chevron-left" ></span>
                             </a>
                             <a class="right carousel-control" href="#carousel-example-generic" data-slide="next">
-                                <span class="glyphicon glyphicon-chevron-right"></span>
+                                <span class="glyphicon glyphicon-chevron-right" ></span>
                             </a>
+
                         </div>
                     </div>
                 </div>
+
+
+
+
+
+
                 <div>
-                <!-- Title -->
-                <hr />
-                <div class="row">
-                    <div class="col-lg-12">
-                        <h3>BESTSELLERY</h3>
-                    </div>
-                </div>
-
-
-                <div class="row">
-                    @foreach (var bestseller in Model.Bestsellery)
-                    {
-                        <div class="col-sm-4 col-lg-4 col-md-4">
-                            <div class="thumbnail">
-                                <img src="@Url.ObrazkiSciezka(bestseller.NazwaPlikuObrazka)" alt="">
-                                <div class="caption">
-                                    <h4 class="pull-right">@string.Format("{0:C}", bestseller.CenaKursu)</h4>
-                                    <h4>
-                                        <a href="#">@bestseller.TytulKursu</a>
-                                    </h4>
-                                    <a href="@Url.Action("BuyNow", "Cart", new { id=bestseller.KursId})" class="btn btn-primary">Buy Now!</a>
-                                    <a href="@Url.Action("MoreInfo", "Kursy" , new { id = bestseller.KursId })" class="btn btn-default">More Info</a>
-                                    <p>@bestseller.OpisSkrocony <a target="_blank" href="http://www.bootsnipp.com">Bootsnipp - http://bootsnipp.com</a>.</p>
-                                </div>
-                                <div class="ratings">
-                                    <p class="pull-right">15 reviews</p>
-                                    <p>
-                                        <span class="glyphicon glyphicon-star"></span>
-                                        <span class="glyphicon glyphicon-star"></span>
-                                        <span class="glyphicon glyphicon-star"></span>
-                                        <span class="glyphicon glyphicon-star"></span>
-                                        <span class="glyphicon glyphicon-star"></span>
-                                    </p>
-                                </div>
+                    <div>
+                        <!-- Title -->
+                        <hr />
+                        <div class="row">
+                            <div class="col-lg-12">
+                                <h3>BESTSELLERY</h3>
                             </div>
                         </div>
-                    }
+
+
+                        <div class="row">
+                            @foreach (var bestseller in Model.Bestsellery)
+                            {
+                                <div class="col-sm-4 col-lg-4 col-md-4">
+                                    <div class="thumbnail">
+                                        <img src="@Url.ObrazkiSciezka(bestseller.NazwaPlikuObrazka)" alt="">
+                                        <div class="caption">
+                                            <h4 class="pull-right">@string.Format("{0:C}", bestseller.CenaKursu)</h4>
+                                            <h4>
+                                                <a href="#">@bestseller.TytulKursu</a>
+                                            </h4>
+                                            <a href="@Url.Action("BuyNow", "Cart", new { id=bestseller.KursId})" class="btn btn-primary">Buy Now!</a>
+                                            <a href="@Url.Action("MoreInfo", "Kursy" , new { id = bestseller.KursId })" class="btn btn-default">More Info</a>
+                                            <p>@bestseller.OpisSkrocony <a target="_blank" href="http://www.bootsnipp.com">Bootsnipp - http://bootsnipp.com</a>.</p>
+                                        </div>
+                                        <div class="ratings">
+                                            <p class="pull-right">15 reviews</p>
+                                            <p>
+                                                <span class="glyphicon glyphicon-star"></span>
+                                                <span class="glyphicon glyphicon-star"></span>
+                                                <span class="glyphicon glyphicon-star"></span>
+                                                <span class="glyphicon glyphicon-star"></span>
+                                                <span class="glyphicon glyphicon-star"></span>
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                            }
+                        </div>
+                    </div>
                 </div>
 
-            </div>
+
             <!-- Title -->
             <hr />
             <div class="row">
@@ -143,5 +152,5 @@
 
     </div>
 </div>
-    </div>
+
 <!-- /.container -->
