@@ -9,6 +9,11 @@ namespace Sklep_new.Models
     public class Zamowienie
     {
         public int ZamowienieID { get; set; }
+
+        public string UserId { get; set; }
+
+        public virtual ApplicationUser user { get; set; }
+
         [Required(ErrorMessage = "Wprowadź imię")]
         [StringLength(50)]
         public string Imie { get; set; }
@@ -17,7 +22,7 @@ namespace Sklep_new.Models
         public string Nazwisko { get; set; }
         [Required(ErrorMessage = "Wprowadź ulicę")]
         [StringLength(100)]
-        public string Ulica { get; set; }
+        public string Adres { get; set; }
         [Required(ErrorMessage = "Wprowadź miasto")]
         [StringLength(100)]
         public string Miasto { get; set; }

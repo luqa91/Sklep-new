@@ -215,6 +215,10 @@
     <Compile Include="Migrations\201702222312292_daneuzytkownika.Designer.cs">
       <DependentUpon>201702222312292_daneuzytkownika.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201702252234525_Zamowienia.cs" />
+    <Compile Include="Migrations\201702252234525_Zamowienia.Designer.cs">
+      <DependentUpon>201702252234525_Zamowienia.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\DaneUzytkownika.cs" />
     <Compile Include="Models\IdentityModels.cs" />
@@ -354,6 +358,8 @@
     <Content Include="Views\Account\Login.cshtml" />
     <Content Include="Views\Account\Register.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
+    <Content Include="Views\Cart\Zaplac.cshtml" />
+    <Content Include="Views\Cart\PotwierdzenieZamowienia.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -376,6 +382,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201702222312292_daneuzytkownika.resx">
       <DependentUpon>201702222312292_daneuzytkownika.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201702252234525_Zamowienia.resx">
+      <DependentUpon>201702252234525_Zamowienia.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

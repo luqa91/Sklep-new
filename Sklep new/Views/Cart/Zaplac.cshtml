@@ -1,0 +1,94 @@
+﻿@model Sklep_new.Models.Zamowienie
+
+@{
+    ViewBag.Title = "Zaplac";
+    Layout = "~/Views/Shared/_RightSectionLayout.cshtml";
+}
+
+@section SectionTitle{
+    Uzupełnij dane zamówienia
+}
+
+<div class="container">
+    <div class="row">
+        @using (Html.BeginForm("Zaplac", "Cart", new { @class = "form-horizontal" }))
+        {
+            <fieldset>
+                <!-- Form Name -->
+                <legend>Order</legend>
+                <!-- Text input-->
+                <div class="form-group row">
+                    @Html.LabelFor(o => o.Imie, "Imię:", new { @class = "col-md-4 control-label" })
+                    <div class="col-md-4">
+                        @Html.TextBoxFor(o => o.Imie, new { @class = "form-control input-md", name = "textinputname", type = "text", placeholder = "Name", required = "" })
+                    </div>
+                </div>
+
+                <div class="form-group row">
+                    @Html.LabelFor(o => o.Nazwisko, "Nazwisko:", new { @class = "col-md-4 control-label" })
+                    <div class="col-md-4">
+                        @Html.TextBoxFor(o => o.Nazwisko, new { @class = "form-control input-md ", name = "textinputforname", type = "text", placeholder = "Forname", required = "" })
+                    </div>
+                </div>
+
+                <div class="form-group row">
+                    @Html.LabelFor(o => o.Adres, "Adres:", new { @class = "col-md-4 control-label", id = "textinputadres" })
+                    <div class="col-md-4">
+                        @Html.TextBoxFor(o => o.Adres, new { @class = "form-control input-md", id = "textinputadres", name = "textinputadres", type = "text", placeholder = "Adres", required = "" })
+                    </div>
+                </div>
+
+                <div class="form-group row">
+                    @Html.LabelFor(o => o.Miasto, "Miasto:", new { @class = "col-md-4 control-label", id = "textinputcity" })
+                    <div class="col-md-4">
+                        @Html.TextBoxFor(o => o.Miasto, new { @class = "form-control input-md", id = "textinputcity", name = "textinputcity", type = "text", placeholder = "City", required = "" })
+                    </div>
+                </div>
+
+                <div class="form-group row">
+                    @Html.LabelFor(o => o.KodPocztowy, "Kod pocztowy:", new { @class = "col-md-4 control-label", id = "textinputkodpocztowy" })
+                    <div class="col-md-4">
+                        @Html.TextBoxFor(o => o.KodPocztowy, new { @class = "form-control input-md", id = "textinputkodpocztowy", name = "textinputkodpocztowy", type = "text", placeholder = "Kod pocztowy", required = "" })
+                    </div>
+                </div>
+
+                <div class="form-group row">
+                    @Html.LabelFor(o => o.Telefon, "Telefon:", new { @class = "col-md-4 control-label", id = "textinputphone" })
+                    <div class="col-md-4">
+                        @Html.TextBoxFor(o => o.Telefon, new { @class = "form-control input-md", id = "textinputphone", name = "textinputphone", type = "text", placeholder = "Phone number", required = "" })
+                    </div>
+                </div>
+
+                <div class="form-group row">
+                    @Html.LabelFor(o => o.Email, "Email:", new { @class = "col-md-4 control-label", id = "textinputemail" })
+                    <div class="col-md-4">
+                        @Html.TextBoxFor(o => o.Email, new { @class = "form-control input-md", id = "textinputemail", name = "textinputemail", type = "text", placeholder = "Email", required = "" })
+                    </div>
+                </div>
+
+
+                <div class="form-group row">
+                    @Html.Label("Komentarz", new { @class = "col-md-4 control-label" })  
+                    <div class="col-md-4">
+                        <textarea class="col-md-4 form-control input-md" id="textareaid" cols="40" rows="3" name="comment">@Model.Komentarz</textarea>
+                    </div>
+                </div>  
+
+                @Html.ValidationSummary()
+
+                <!-- Button -->
+                <div class="form-group">
+                    <label class="col-md-4 control-label" for="singlebuttonsubmit"></label>
+                    <div class="col-md-4">
+                        <input type="submit" id="singlebuttonsubmit" name="singlebuttonsubmit" class="btn btn-primary" value="Submit" />
+                    </div>
+                </div>
+
+            </fieldset>
+        }
+    </div>
+</div>
+
+
+
+
