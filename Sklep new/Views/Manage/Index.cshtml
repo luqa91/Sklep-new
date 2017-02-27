@@ -1,0 +1,171 @@
+﻿@model Sklep_new.ViewModels.ManageCredentialsViewModel
+@{
+    ViewBag.Title = "Zarządzaj";
+    Layout = "~/Views/Shared/_ManageLayout.cshtml";
+}
+
+<h2>@ViewBag.Title.</h2>
+
+
+<div class="container">
+    <div id="loginbox" style="margin-top:50px;" class="mainbox col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2">
+        <div class="panel panel-info">
+   
+    <div style="padding-top:30px" class="panel-body">
+        <div style="display:none" id="login-alert" class="alert alert-danger col-sm-12"></div>
+
+
+        @using (Html.BeginForm("ChangeProfile", "Manage"))
+        {
+            @Html.AntiForgeryToken()
+
+            @Html.ValidationSummary("", new { @class = "text-danger" })
+
+
+            <div class="form-group row">
+                @Html.LabelFor(o => o.DaneUzytkownika.Imie, "Imię:", new { @class = "col-md-3 control-label" })
+                <div class="col-md-9">
+                    @Html.TextBoxFor(m => m.DaneUzytkownika.Imie, new { @class = "form-control", id = "login-username", type = "text", name = "username", value = "", placeholder = "username" })
+                    @Html.ValidationMessageFor(o => o.DaneUzytkownika.Imie)
+                </div>
+            </div>
+
+                    <div class="form-group row">
+                        @Html.LabelFor(o => o.DaneUzytkownika.Nazwisko, "Nazwisko:", new { @class = "col-md-3 control-label" })
+                        <div class="col-md-9">
+                            @Html.TextBoxFor(m => m.DaneUzytkownika.Nazwisko, new { @class = "form-control", id = "login-userforname", type = "text", name = "userforname", value = "", placeholder = "forname" })
+                            @Html.ValidationMessageFor(o => o.DaneUzytkownika.Nazwisko)
+                        </div>
+                    </div>
+
+
+
+                    <div class="form-group row">
+                        @Html.LabelFor(o => o.DaneUzytkownika.Adres, "Adres:", new { @class = "col-md-3 control-label" })
+                        <div class="col-md-9">
+                            @Html.TextBoxFor(m => m.DaneUzytkownika.Adres, new { @class = "form-control", id = "login-useradres", type = "text", name = "useradres", value = "", placeholder = "adres" })
+                            @Html.ValidationMessageFor(o => o.DaneUzytkownika.Adres)
+                        </div>
+                    </div>
+
+
+                    <div class="form-group row">
+                        @Html.LabelFor(o => o.DaneUzytkownika.Miasto, "Miasto:", new { @class = "col-md-3 control-label" })
+                        <div class="col-md-9">
+                            @Html.TextBoxFor(m => m.DaneUzytkownika.Miasto, new { @class = "form-control", id = "login-usercity", type = "text", name = "usercity", value = "", placeholder = "city" })
+                            @Html.ValidationMessageFor(o => o.DaneUzytkownika.Miasto)
+                        </div>
+                    </div>
+
+                    <div class="form-group row">
+                        @Html.LabelFor(o => o.DaneUzytkownika.KodPocztowy, "Kod pocztowy:", new { @class = "col-md-3 control-label" })
+                        <div class="col-md-9">
+                            @Html.TextBoxFor(m => m.DaneUzytkownika.KodPocztowy, new { @class = "form-control", id = "login-userkodpocztowy", type = "text", name = "userkodpocztowy", value = "", placeholder = "Kod pocztowy" })
+                            @Html.ValidationMessageFor(o => o.DaneUzytkownika.KodPocztowy)
+                        </div>
+                    </div>
+
+                    <div class="form-group row">
+                        @Html.LabelFor(o => o.DaneUzytkownika.Telefon, "Telefon:", new { @class = "col-md-3 control-label" })
+                        <div class="col-md-9">
+                            @Html.TextBoxFor(m => m.DaneUzytkownika.Telefon, new { @class = "form-control", id = "login-userphone", type = "text", name = "userphone", value = "", placeholder = "phone" })
+                            @Html.ValidationMessageFor(o => o.DaneUzytkownika.Telefon)
+                        </div>
+                    </div>
+
+                    <div class="form-group row">
+                        @Html.LabelFor(o => o.DaneUzytkownika.Email, "Email:", new { @class = "col-md-3 control-label" })
+                        <div class="col-md-9">
+                            @Html.TextBoxFor(m => m.DaneUzytkownika.Email, new { @class = "form-control", id = "login-useremail", type = "text", name = "useremail", value = "", placeholder = "email" })
+                            @Html.ValidationMessageFor(o => o.DaneUzytkownika.Email)
+                        </div>
+                    </div>
+
+
+                    <div style="margin-top:10px" class="form-group">
+                        <!-- Button -->
+                        <div class="col-sm-12 controls">
+                            <input type="submit" id="btn-login" class="btn btn-success" value="Potwierdź" />
+                        </div>
+                    </div>
+               
+                
+        }
+
+
+@using (Html.BeginForm("ChangePassword", "Manage", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+{
+    @Html.AntiForgeryToken()
+    <br />
+    <br />
+    <hr />
+    @Html.ValidationMessage("password-error", new { @class = "text-danger" })
+
+
+    if (Model.Message.HasValue)
+    {
+        <div class="manage-message">
+            @switch (Model.Message)
+            {
+                case Sklep_new.Controllers.ManageController.ManageMessageId.ChangePasswordSuccess:
+                    @: Hasło zmienione pomyślnie!
+                    <br />
+                    break;
+                case Sklep_new.Controllers.ManageController.ManageMessageId.Error:
+                    @: Wystąpił błąd!
+                break;
+            }
+        </div>
+    }
+
+    @Html.ValidationSummary("", new { @class = "text-danger" })
+
+
+    <div class="form-group">
+        @Html.LabelFor(m => m.ChangePasswordViewModel.OldPassword, new { @class = "col-md-3 control-label" })
+        <div class="col-md-9">
+            @Html.PasswordFor(m => m.ChangePasswordViewModel.OldPassword, new { @class = "form-control" })
+        </div>
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(m => m.ChangePasswordViewModel.NewPassword, new { @class = "col-md-3 control-label" })
+        <div class="col-md-9">
+            @Html.PasswordFor(m => m.ChangePasswordViewModel.NewPassword, new { @class = "form-control" })
+        </div>
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(m => m.ChangePasswordViewModel.ConfirmPassword, new { @class = "col-md-3 control-label" })
+        <div class="col-md-9">
+            @Html.PasswordFor(m => m.ChangePasswordViewModel.ConfirmPassword, new { @class = "form-control" })
+        </div>
+    </div>
+    <div class="form-group">
+        <div class="col-md-offset-2 col-md-10">
+            <input type="submit" value="Zmień hasło" class="btn btn-default" />
+        </div>
+    </div>
+}
+
+
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+
+
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+<script src="~/Scripts/jquery-3.1.1.js"></script>
+<script src="~/Scripts/jquery.validate.js"></script>
+<script src="~/Scripts/jquery.validate.unobtrusive.js"></script>
+
+
+}
+

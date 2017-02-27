@@ -11,7 +11,9 @@ namespace Sklep_new.Models
     {
 
         public virtual ICollection<Zamowienie> Zamowienia { get; set; }
+
         public DaneUzytkownika DaneUzytkownika { get; set; }
+
         public async Task<ClaimsIdentity> GenerateUserIdentityAsync(UserManager<ApplicationUser> manager)
         {
             // Element authenticationType musi pasować do elementu zdefiniowanego w elemencie CookieAuthenticationOptions.AuthenticationType
@@ -19,5 +21,6 @@ namespace Sklep_new.Models
             // Dodaj tutaj niestandardowe oświadczenia użytkownika
             return userIdentity;
         }
+
     }
 }

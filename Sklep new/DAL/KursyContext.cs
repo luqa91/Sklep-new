@@ -39,7 +39,7 @@ namespace Sklep_new.DAL
             //wyłącza konwencję, która automatycznie tworzy liczbę mnogą dla nazw tabel w bazie danych
             //zamiast Kategorie zostałyby stworzone tabele o nazwie Kategories
             modelBuilder.Conventions.Remove<PluralizingTableNameConvention>(); 
-                  base.OnModelCreating(modelBuilder);      
+            base.OnModelCreating(modelBuilder);      
 
         }
     }
