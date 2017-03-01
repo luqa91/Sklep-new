@@ -62,6 +62,7 @@ namespace Sklep_new.Controllers
         }
 
 
+
         public ActionResult Kategoria()
         {
             ViewBag.Message = "Your contact page.";
@@ -86,24 +87,7 @@ namespace Sklep_new.Controllers
             return View(nazwa, vm);
         }
 
-        public ActionResult test()
-        {
-            {
 
-                var kategorie = db.Kategorie.ToList();
-                var nowosci = db.Kursy.Where(a => !a.Ukryty).OrderByDescending(a => a.DataDodania).Take(3).ToList();
-                var bestsellery = db.Kursy.Where(a => !a.Ukryty && a.Bestseller).OrderBy(a => Guid.NewGuid()).Take(3).ToList();
-
-                var m = new HomeViewModel()
-                {
-                    Kategorie = kategorie,
-                    Nowości = nowosci,
-                    Bestsellery = bestsellery,
-
-                };
-                return View("test", m);
-            }
-        }
 
         
 

@@ -6,12 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="">
     <meta name="author" content="">
-    <title>Shop Homepage - Start Bootstrap Template</title>
-    <!-- Bootstrap Core CSS -->
-    <!--   <link href="css/bootstrap.min.css" rel="stylesheet">-->
-    <link href="@Url.Content("~/Content/bootstrap.min.css")" rel="stylesheet" />
-    <link href="~/Content/css/CartNav.css" rel="stylesheet" />
-    <link href="~/Content/css/cart.css" rel="stylesheet" />
+    <title>Shop Homepage</title>
 
 
 
@@ -53,7 +48,6 @@
                     @Html.Partial("_LoginPartial")
 
 
-
                     <ul class="nav navbar-nav navbar-right">
                         <li class="dropdown">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"> <span class="glyphicon glyphicon-shopping-cart"></span>
@@ -74,7 +68,7 @@
                                     </span>
                                 </li>
                                 <li class="divider"></li>
-                                <li><a class="text-center" href="">View Cart</a></li>
+                                <li><a class="text-center" href="@Url.Action("Index","Cart")">View Cart</a></li>
                             </ul>
                         </li>
                     </ul>

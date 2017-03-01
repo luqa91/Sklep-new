@@ -241,6 +241,8 @@
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\css\listazamowien.css" />
+    <Content Include="Content\css\Zamowieniatabela.css" />
     <Content Include="Content\css\loginForm.css" />
     <Content Include="Content\css\CartNav.css" />
     <Content Include="Content\css\cart.css" />
@@ -348,7 +350,6 @@
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\Home\About.cshtml" />
     <Content Include="Views\Home\Contact.cshtml" />
-    <Content Include="Views\Home\test.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Kursy\Lista.cshtml" />
     <Content Include="Views\Cart\BuyNow.cshtml" />
@@ -364,6 +365,8 @@
     <Content Include="Views\Cart\PotwierdzenieZamowienia.cshtml" />
     <Content Include="Views\Manage\Index.cshtml" />
     <Content Include="Views\Shared\_ManageLayout.cshtml" />
+    <Content Include="Views\Manage\ListaZamowien.cshtml" />
+    <Content Include="Views\Shared\DisplayTempl\Enum.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
