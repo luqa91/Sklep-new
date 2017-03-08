@@ -1,4 +1,4 @@
-namespace Sklep_new.Migrations
+﻿namespace Sklep_new.Migrations
 {
     using Sklep_new.DAL;
     using System.Data.Entity.Migrations;
@@ -8,8 +8,10 @@ namespace Sklep_new.Migrations
         public Configuration()
         {
             AutomaticMigrationsEnabled = true;
-            AutomaticMigrationDataLossAllowed = true;
-            ContextKey = "StronaSklep.DAL.KursyContext";
+            AutomaticMigrationDataLossAllowed = false;
+            ContextKey = "Sklep_new.DAL.KursyContext";
+            //   ContextKey = "StronaSklep.DAL.KursyContext";
+
         }
 
         protected override void Seed(Sklep_new.DAL.KursyContext context)

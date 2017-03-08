@@ -6,14 +6,17 @@ using System.Web.Mvc;
 using Sklep_new.Infrasctructure;
 using System.Collections.Generic;
 using Sklep_new.Models;
+using NLog;
 
 namespace Sklep_new.Controllers
 {
     public class HomeController : Controller
     {
         private KursyContext db = new KursyContext();
+        private static Logger logger = LogManager.GetCurrentClassLogger();
         public ActionResult Index()
         {
+            logger.Info("Jesteś na stronie głównej");
             ICacheProvider cache = new DefaultCacheProvider();
             List<Kurs> nowosci;
             if (cache.IsSet(Const.NowosciCacheKey))

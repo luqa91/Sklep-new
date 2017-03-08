@@ -7,18 +7,18 @@ namespace Sklep_new.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.1.3-40302")]
-    public sealed partial class daneuzytkownika : IMigrationMetadata
+    public sealed partial class Elmah : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(daneuzytkownika));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(Elmah));
         
         string IMigrationMetadata.Id
         {
-            get { return "201702222312292_daneuzytkownika"; }
+            get { return "201703052032201_Elmah"; }
         }
         
         string IMigrationMetadata.Source
         {
-            get { return Resources.GetString("Source"); }
+            get { return null; }
         }
         
         string IMigrationMetadata.Target

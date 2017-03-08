@@ -45,6 +45,16 @@
                         <li><a href="@Url.Action("Index", "Home")"> HOME </a></li>
                         <li><a href="@Url.Action("Index", "Manage")"> Manage </a></li>
                         <li><a href="@Url.Action("ListaZamowien", "Manage")"> Zamówienia </a></li>
+
+                        @if (@User.IsInRole("Admin"))
+                        {
+                         <li><a href="@Url.Action("DodajKurs", "Manage")"> Dodaj </a></li>
+
+                        <li><a href="@Url.Content("~/elmah")"> Logi </a></li>
+
+                        <li><a href="@Url.Content("~/hangfire")"> Jobs </a></li>
+                        }
+
                     </ul>
 
                     @Html.Partial("_LoginPartial")

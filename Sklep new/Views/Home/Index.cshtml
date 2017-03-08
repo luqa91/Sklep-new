@@ -7,6 +7,9 @@
 } 
 
 
+
+
+
     <!-- Page Content -->
     <link href="@Url.Content("~/Content/css/shop-homepage.css")" rel="stylesheet" />
 
@@ -32,7 +35,7 @@
                                     {
                                         var itemClass = i++ == 0 ? "item active" : "item";
                                         <div class="@itemClass">
-                                            <img src="@Url.ObrazkiSciezka(nowosc.NazwaPlikuObrazka)" alt="">
+                                            <img id="obrazkinowosci" src="@Url.ObrazkiSciezka(nowosc.NazwaPlikuObrazka)" alt="">
                                             <div class="carousel-caption">
                                                 <a href="@Url.Action("BuyNow", "Cart", new { id = nowosc.KursId })" class="btn btn-primary" >Buy Now!</a>
                                                 <a href="@Url.Action("MoreInfo", "Kursy", new { id = nowosc.KursId })" class="btn btn-default">More Info</a>
@@ -78,7 +81,7 @@
                             {
                                 <div class="col-sm-4 col-lg-4 col-md-4">
                                     <div class="thumbnail">
-                                        <img src="@Url.ObrazkiSciezka(bestseller.NazwaPlikuObrazka)" alt="">
+                                        <img id="obrazkibestsellery" src="@Url.ObrazkiSciezka(bestseller.NazwaPlikuObrazka)" alt="">
                                         <div class="caption">
                                             <h4 class="pull-right">@string.Format("{0:C}", bestseller.CenaKursu)</h4>
                                             <h4>
@@ -120,7 +123,7 @@
                     <div class="col-sm-4 col-lg-4 col-md-4">
 
                         <div class="thumbnail">
-                            <img src="@Url.IkonyKategoriiSciezka(kategoria.NazwaPlikuIkony)" alt="zdjecie">
+                            <img id="obrazkikategorie" src="@Url.IkonyKategoriiSciezka(kategoria.NazwaPlikuIkony)" alt="zdjecie">
                             <div class="caption">
                                 <h4 class="pull-right">$24.99</h4>
                                 <h4>

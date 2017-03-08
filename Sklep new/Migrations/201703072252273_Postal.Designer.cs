@@ -7,18 +7,18 @@ namespace Sklep_new.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.1.3-40302")]
-    public sealed partial class Zamowienia : IMigrationMetadata
+    public sealed partial class Postal : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(Zamowienia));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(Postal));
         
         string IMigrationMetadata.Id
         {
-            get { return "201702252234525_Zamowienia"; }
+            get { return "201703072252273_Postal"; }
         }
         
         string IMigrationMetadata.Source
         {
-            get { return Resources.GetString("Source"); }
+            get { return null; }
         }
         
         string IMigrationMetadata.Target

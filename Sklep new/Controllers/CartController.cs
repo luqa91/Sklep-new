@@ -1,9 +1,13 @@
-﻿using Microsoft.AspNet.Identity;
+﻿using Hangfire;
+using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
 using Sklep_new.DAL;
 using Sklep_new.Infrasctructure;
 using Sklep_new.Models;
 using Sklep_new.ViewModels;
+using System;
+using System.Linq;
+using System.Net;
 using System.Threading.Tasks;
 using System.Web;
 using System.Web.Mvc;
@@ -114,6 +118,19 @@ namespace Sklep_new.Controllers
                 //opróżnimy nasz koszyk zakupów
                 koszykManager.PustyKoszyk();
 
+
+
+
+
+                string url = Url.Action("PotwierdzenieZamowieniaEmail", "Cart", new { zamowienieid = newOrder.ZamowienieID, nazwisko = newOrder.Nazwisko }, Request.Url.Scheme);
+                BackgroundJob.Enqueue(() => Call(url));
+
+
+
+
+
+
+
                 return RedirectToAction("PotwierdzenieZamowienia");
             }
             else
@@ -121,8 +138,38 @@ namespace Sklep_new.Controllers
 
         }
 
+        public static void Call (string url)
+        {
+            var req = HttpWebRequest.Create(url);
+            req.GetResponseAsync();
+        }
+
+        public ActionResult PotwierdzenieZamowieniaEmail (int zamowienieid, string nazwisko)
+        {
+
+            var zamowienie = db.Zamowienia.Include("PozycjeZamowienia").
+                Include("PozycjeZamowienia.Kurs").SingleOrDefault
+                (o => o.ZamowienieID == zamowienieid && o.Nazwisko == nazwisko);
+
+            if (zamowienie == null) return new HttpStatusCodeResult(HttpStatusCode.NotFound);
+
+            var email = new PotwierdzenieZamowieniaEmail();
+            email.To = zamowienie.Email;
+            email.From = "Kaczmareek.Lukasz@gmail.com";
+            email.Wartosc = zamowienie.WartoscZamowienia;
+            email.NumerZamowienia = zamowienie.ZamowienieID;
+            email.PozycjeZamowienia = zamowienie.PozycjeZamowienia;
+
+            email.Send();
+
+            return new HttpStatusCodeResult(HttpStatusCode.OK);
+        }
+
+
         public ActionResult PotwierdzenieZamowienia()
         {
+            var name = User.Identity.Name;
+           // Logger.Info("Strona koszyk | Potwierdzenie | " + name);
             return View();
         }
 

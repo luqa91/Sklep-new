@@ -3,7 +3,7 @@ namespace Sklep_new.Migrations
     using System;
     using System.Data.Entity.Migrations;
     
-    public partial class daneuzytkownika : DbMigration
+    public partial class Postal : DbMigration
     {
         public override void Up()
         {

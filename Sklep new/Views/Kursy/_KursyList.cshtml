@@ -1,6 +1,24 @@
 ﻿@model IEnumerable <Sklep_new.Models.Kurs>
 @using Sklep_new.Infrasctructure
 
+
+<style type="text/css">
+    #obrazki {
+        width: 150px;
+        height: 100px;
+    }
+
+    #obrazkikosz {
+        width: 50px;
+        height: 50px;
+    }
+</style>
+
+
+
+
+
+
 <div class="table-responsive">
     <table class="table table-striped">
         <thead>
@@ -16,12 +34,12 @@
             @foreach (var item in Model) { 
                 <tr>
                     <td>
-                        @Html.DisplayFor(itm => item.AutorKursu);
+                        @Html.DisplayFor(itm => item.AutorKursu)
                         <a href="@Url.Action("BuyNow","Cart", new {id=item.KursId })">
-                            <img src="@Url.Content("~/Content/Images/Koszyk.png")" />
+                            <img id="obrazkikosz" src="@Url.Content("~/Content/Images/Koszyk.png")" />
                         </a>
                         <a class="" href="@Url.Action("MoreInfo","Kursy", new {id=item.KursId })">
-                            <img src="@Url.ObrazkiSciezka(item.NazwaPlikuObrazka)" />
+                            <img id="obrazki" src="@Url.ObrazkiSciezka(item.NazwaPlikuObrazka)" />
                         </a>
                     </td>
                 </tr>
